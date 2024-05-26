@@ -1,0 +1,15 @@
+.modal {
+  width: 100%;
+  overflow-x: hidden;
+
+  &__carousel {
+    padding: 20px;
+
+    &-img {
+      display: block;
+      width: 100%;
+      height: auto;
+    }
+
+  }
+}

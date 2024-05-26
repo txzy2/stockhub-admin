@@ -1,0 +1,25 @@
+<!--@for (photo of data; track data.length) {-->
+<!--  <img-->
+<!--    [src]="getBaseUrl(photo)"-->
+<!--    alt="{{photo}}">-->
+<!--}-->
+
+<!--TODO: Fix jumping photos-->
+
+<div class="modal">
+  <c-carousel class="modal__carousel" [interval]="0">
+    <c-carousel-inner>
+      @for (photo of data; track data.length) {
+        <c-carousel-item>
+          <img class="modal__carousel-img" [src]="getBaseUrl(photo)"
+               alt="{{photo}}"
+               loading="lazy">
+        </c-carousel-item>
+      }
+    </c-carousel-inner>
+    <c-carousel-control [routerLink] caption="<<<"
+                        direction="prev"></c-carousel-control>
+    <c-carousel-control [routerLink] caption=">>>"
+                        direction="next"></c-carousel-control>
+  </c-carousel>
+</div>

@@ -1,0 +1,65 @@
+<!--Таблица товаров-->
+<table>
+  <thead>
+  <tr>
+    <th><i class="ri-hashtag"></i> ID</th>
+    <th><i class="ri-article-line"></i> Артикул</th>
+    <th><i class="ri-palette-line"></i> Бренд</th>
+    <th><i class="ri-palette-line"></i> Модель</th>
+    <th><i class="ri-palette-line"></i> Цвет</th>
+    <th><i class="ri-box-1-line"></i> Материал</th>
+    <th><i class="ri-line-chart-line"></i> Размер (US)</th>
+    <th><i class="ri-image-line"></i> Фото</th>
+    <th><i class="ri-cash-line"></i> Цена</th>
+    <th><i class="ri-settings-2-line"></i></th>
+  </tr>
+  </thead>
+  @if (products$ | async; as products) {
+    <tbody>
+      @for (product of products; track product.id) {
+        <tr
+          [class.table_active]="selectItem === product.id"
+          (click)="selectedItem(product)"
+        >
+          <td>{{ product.id }}</td>
+          <td class="bold">{{ product.article }}</td>
+          <td>{{ product.brand }}</td>
+          <td>{{ product.model }}</td>
+
+          <td>
+            {{ product.variants | variantsProperty : "color" }}
+          </td>
+          <td>{{ product.material }}</td>
+          <td>
+            {{ product.variants | variantsProperty : "size" }}
+          </td>
+
+          <td>
+            @if (product.photos) {
+              <span class="link bold" (click)="openModalPhoto(product.photos)">Фото загружено</span>
+            } @else {
+              <span class="link bold">Фото нет</span>
+            }
+          </td>
+
+          <td>
+            {{ product.variants | variantsProperty : "price" }}
+          </td>
+
+          <td>
+            <button class="bold italic" (click)="openModal(product)">Edit
+            </button>
+          </td>
+        </tr>
+      }
+    </tbody>
+  }
+</table>
+
+@if (!(products$ | async)) {
+  <img
+    class="pending"
+    src="../../../../../../../assets/Loading.svg"
+    alt="loading"
+  />
+}

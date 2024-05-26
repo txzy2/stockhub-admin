@@ -1,0 +1,91 @@
+<!--TODO: Сделать модальные окна для добавление товара и редактирования-->
+
+<div class="products">
+  <section class="products-add">
+    <h2 class="products--title">Add Product</h2>
+
+    <form class="products__form" #productForm>
+
+      <div class="form-group">
+        <label>Артикул</label>
+        <input type="text" #article>
+      </div>
+
+      <div class="form-group">
+        <label>Класс</label>
+        <input type="text" #category/>
+      </div>
+
+      <div class="form-group">
+        <label>Заголовок (Кроссовки)</label>
+        <input type="text" #name>
+      </div>
+
+      <div class="form-group">
+        <label>Бренд (Nike)</label>
+        <input type="text" #brand>
+      </div>
+
+      <div class="form-group">
+        <label>Модель</label>
+        <input type="text" #model>
+      </div>
+
+      <div class="form-group">
+        <label>Материал</label>
+        <input type="text" #material>
+      </div>
+
+      <div class="form-group">
+        <label>Добавить фото</label>
+        <input type="file" #photos multiple>
+        <button type="button" class="file-button">Выбрать файлы</button>
+      </div>
+
+      <div class="form-group">
+        <label>Цвет</label>
+        <input type="text" #color>
+      </div>
+
+      <div class="form-group">
+        <label>Размеры (1, 2, ...)</label>
+        <input type="text" #size>
+      </div>
+
+      <div class="form-group">
+        <label>Цена (12 234)</label>
+        <input type="text" #price>
+      </div>
+
+      <button type="submit" class="form__button" (click)="getValue({
+      article: article.value,
+      category: category.value,
+      name: name.value,
+      brand: brand.value,
+      model: model.value,
+      material: material.value,
+      photos: photos.files,
+      color: color.value,
+      size: size.value,
+      price: parseInt(price.value, 10)
+  })">Добавить
+      </button>
+
+    </form>
+  </section>
+
+  <section class="">
+    <h3 class="products--title">Products</h3>
+
+    <app-products-table
+      class="products-table"
+      [products$]="products$"
+    ></app-products-table>
+  </section>
+
+  <section>
+    <h3 class="products--title">Filters</h3>
+    <app-products-filter class="products-filter"></app-products-filter>
+  </section>
+
+</div>

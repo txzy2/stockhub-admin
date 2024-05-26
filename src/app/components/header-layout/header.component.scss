@@ -1,0 +1,40 @@
+@import '../../../styles/vars';
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  padding: 20px 0;
+
+  &__container {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+
+    font-size: 20px;
+    font-weight: 500;
+
+    &--link {
+      transition: 0.3s ease-in;
+
+      &:hover {
+        scale: 1.05;
+      }
+    }
+  }
+
+  &__profile {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+
+    &--logout {
+      transition: 0.5s ease-in-out;
+
+      &:hover {
+        scale: 1.2;
+      }
+    }
+  }
+}

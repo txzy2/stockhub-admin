@@ -1,0 +1,25 @@
+<div class="header">
+  <div class="header__container">
+
+    <img class="header__logo" src="assets/Logo.svg" width="80" height="80"
+         alt="logo"/>
+
+    <a class="header__container--link"
+       routerLink="/admin/products">Товары</a>
+
+    <a class="header__container--link"
+       routerLink="/admin/users">Пользователи</a>
+  </div>
+
+
+  <div class="header__profile">
+    @if (currentUser) {
+      <p
+        class="link">{{ currentUser.email.split('@')[0] }}</p>
+    }
+    <button class="header__profile--logout" (click)="logout()" title="Выход">
+      <img src="assets/log-out.svg" alt="logout">
+    </button>
+  </div>
+
+</div>

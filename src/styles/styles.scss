@@ -1,0 +1,96 @@
+@import "normalize";
+@import "fonts";
+@import "vars";
+
+@import "table-styles";
+
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+}
+
+body {
+  position: relative;
+  height: 100vh;
+
+  display: flex;
+  flex-direction: column;
+
+  padding: 0 30px;
+
+  font-family: "Poppins", "Arial", sans-serif;
+  font-weight: 400;
+
+  background: $main-bg-color;
+  color: $main-text-color;
+}
+
+a, li {
+  text-decoration: none;
+  list-style: none;
+  color: $main-text-color;
+}
+
+button {
+  cursor: pointer;
+
+  background: none;
+  border: none;
+  outline: none;
+
+}
+
+.background-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1000;
+}
+
+.circle {
+  position: absolute;
+  background-color: rgba(23, 23, 23, 0.5);
+  border-radius: 50%;
+}
+
+.italic {
+  font-style: italic;
+}
+
+.bold {
+  font-weight: 600;
+}
+
+.form-link {
+  display: block;
+  font-weight: 500;
+  font-style: italic;
+  font-size: 12px;
+  margin-top: 10px;
+
+  &:hover {
+    transform: translateY(-10%);
+  }
+}
+
+.link,
+.form-link {
+  text-decoration: underline $main-text-color;
+  transition: 0.5s ease-in-out;
+}
+
+.link:hover {
+  scale: 1.1;
+}
+
+@keyframes move {
+  0% {
+    transform: translateY(0) translateX(0);
+  }
+  100% {
+    transform: translate(100vw, -100vh);
+  }
+}

@@ -1,0 +1,58 @@
+@if(data) {
+<div class="edit">
+  <h3 class="edit--title">{{ data.name }} {{ data.brand }} {{ data.model }}</h3>
+
+  <form class="edit__form">
+    <div class="form-group">
+      <input name="article" type="text" value="{{ data.article }}" />
+
+      <label for="article">Артикул</label>
+    </div>
+
+    <div class="form-group">
+      <input name="brand" type="text" value="{{ data.brand }}" />
+
+      <label for="brand">Бренд</label>
+    </div>
+
+    <div class="form-group">
+      <input name="model" type="text" value="{{ data.model }}" />
+
+      <label for="model">Модель</label>
+    </div>
+
+    <div class="form-group">
+      <input
+        name="color"
+        type="text"
+        value="{{ data.variants | variantsProperty : 'color' }}"
+      />
+
+      <label for="color">Цвет</label>
+    </div>
+
+    <div class="form-group">
+      <input name="material" type="text" value="{{ data.material }}" />
+
+      <label for="material">Материал</label>
+    </div>
+
+    <span
+      >Доступные размеры(us):
+      {{ data.variants | variantsProperty : "size" }}</span
+    >
+
+    <div class="form-group">
+      <input
+        name="price"
+        type="text"
+        value="{{ data.variants | variantsProperty : 'price' }}"
+      />
+
+      <label for="price">Цена</label>
+    </div>
+
+    <button class="" type="submit">Применить изменения</button>
+  </form>
+</div>
+}
